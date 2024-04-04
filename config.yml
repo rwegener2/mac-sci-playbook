@@ -38,6 +38,8 @@ dockitems_persist:
   path: "/Applications/Visual Studio Code.app/"
 - name: "Spotify"
   path: "/Applications/Spotify.app/"
+- name: "Notion"
+  path: "/Applications/Notion.app/"
 
 # Not using
 configure_sudoers: false
@@ -67,9 +69,11 @@ homebrew_installed_packages:
   - zlib
   - tcl-tk
   # Everything else
+  - awscli
   - git
   - node
   - pyenv
+  - watch
   - wget
 
 homebrew_taps:
@@ -82,10 +86,12 @@ homebrew_cask_apps:
   - docker
   - iterm2
   - google-chrome
+  - mactex
   - notion
   - qgis
   - slack
   - spotify
+  - texstudio
   - visual-studio-code
   - zoom
   - zotero
