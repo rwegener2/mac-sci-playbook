@@ -5,14 +5,16 @@ This repository was built from @geerlingguy's [Mac Development Ansible Playbook]
 This playbook installs and configures most of the software I use on my Mac for my day to day as an earth science researcher. My language of choice is Python, and it also includes Zotero and QGIS.
 
 ## Installation
-  0. (If using an existing computer) Factory Reset the computer: General > Transfer or Reset > Erase all Content and Settings
-  Install Ansible
+  0. (If using an existing computer) Factory Reset the computer: General > Transfer or Reset > Erase all Content and Settings.
+
   1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).
   2. [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html):
 
      1. Run the following command to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"` (If `PATH` warning is given check the Python version in the Path)
      2. Upgrade Pip: `pip3 install --upgrade pip`
      3. Install Ansible: `pip3 install ansible`
+
+https://docs.ansible.com/ansible/2.9/installation_guide/intro_installation.html#installing-ansible-on-macos 
 
   Download the repository
 
