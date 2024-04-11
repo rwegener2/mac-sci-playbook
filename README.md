@@ -7,28 +7,30 @@ This playbook installs and configures most of the software I use on my Mac for m
 ## Installation
   0. (If using an existing computer) Factory Reset the computer: General > Transfer or Reset > Erase all Content and Settings.
 
-  1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).
-  2. [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html):
+  1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer, or run `/usr/bin/xcodebuild -version` to check if installed). 
+  2. Install Ansible. The Ansible docs [for mac](https://docs.ansible.com/ansible/2.9/installation_guide/intro_installation.html#installing-ansible-on-macos ) indicate that the recommended install method is [via pip](https://docs.ansible.com/ansible/2.9/installation_guide/intro_installation.html#from-pip).:
 
-     1. Run the following command to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"` (If `PATH` warning is given check the Python version in the Path)
+     1. Run the following command to add Python 3 to your $PATH: `export PATH="$PATH:$HOME/Library/Python/3.9/bin:/opt/homebrew/bin"` (If `PATH` warning is given check the Python version in the Path)
      2. Upgrade Pip: `pip3 install --upgrade pip`
-     3. Install Ansible: `pip3 install ansible`
+     3. Install Ansible: `pip3 install --user ansible`
 
-https://docs.ansible.com/ansible/2.9/installation_guide/intro_installation.html#installing-ansible-on-macos 
 
-  Download the repository
+  Download the configuration repository
 
   3. Create a folder for the repository `mkdir $HOME/repos && mkdir $HOME/repos/Github && cd $HOME/repos/Github`
   3. Clone or download this repository to your local drive. `git clone https://github.com/rwegener2/mac-sci-playbook.git`
 
   Set up permissions and run the playbook!
 
-  4. Run `ansible-galaxy install -r requirements.yml` inside this directory to install required Ansible roles. (Should be run from the repo directory)
-  5. Run `ansible-playbook main.yml --ask-become-pass` inside this directory. Enter your macOS account password when prompted for the 'BECOME' password.
+  4. Run `ansible-galaxy install -r requirements.yml` inside this directory to install required Ansible roles. (Should be run from the repo directory: `cd ~/repos/Github/mac-sci-playbook`)
+  5. The Python version for pyenv is hardcoded. Update this before running if desired.
+  6. Run `ansible-playbook main.yml --ask-become-pass` inside this directory. Enter your macOS account password when prompted for the 'BECOME' password. Zoom and mactex also prompt for a password while installing.
 
 > Note: If some Homebrew commands fail, you might need to agree to Xcode's license or fix some other Brew issue. Run `brew doctor` to see if this is the case.
 
-### Use with a remote Mac
+> Note: The miniconda download link is specific for an Intel x86 chip Mac. If this is what you are using see the [miniconda installer links](https://docs.anaconda.com/free/miniconda/index.html#latest-miniconda-installer-links) and select the most appropriate one for your machine.
+
+### Use with a remote Mac (not maintained)
 
 You can use this playbook to manage other Macs as well; the playbook doesn't even need to be run from a Mac at all! If you want to manage a remote Mac, either another Mac on your network, or a hosted Mac like the ones from [MacStadium](https://www.macstadium.com), you just need to make sure you can connect to it with SSH:
 
