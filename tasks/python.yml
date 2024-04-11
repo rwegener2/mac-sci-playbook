@@ -53,11 +53,17 @@
 ####
 # Configuring miniconda
 ####
+# Future improvement -- figure out how to check if this has already
+# happened so they don't have to get reinstalled every time.
 - name: Install global package from default channel - nb_conda_kernels
   command: $HOME/miniconda3/condabin/conda install -n base nb_conda_kernels jupyterlab
 
-# - name: Install global package from conda-forge - jupyter notebook
-#   command: $HOME/miniconda3/condabin/conda install -n base -c conda-forge jupyterlab
+- name: Install global package from conda-forge - JupyterLab
+  command: $HOME/miniconda3/condabin/conda install -n base -c conda-forge jupyterlab
 
+# Alternate route: could include a .config file for conda the dotfiles
 # - name: Set the default conda channel as conda-forge
+#   command: $HOME/miniconda3/condabin/conda config --add channels conda-forge
+
+# - name: Set the strict channel priority
 #   command: $HOME/miniconda3/condabin/conda config --set channel_priority strict
