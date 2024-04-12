@@ -30,6 +30,8 @@ This playbook installs and configures most of the software I use on my Mac for m
 
 > Note: The miniconda download link is specific for an Intel x86 chip Mac. If this is what you are using see the [miniconda installer links](https://docs.anaconda.com/free/miniconda/index.html#latest-miniconda-installer-links) and select the most appropriate one for your machine.
 
+  7. Restart computer when complete. (Many Mac settings don't update until computer is restarted.)
+
 ### Use with a remote Mac (not maintained)
 
 You can use this playbook to manage other Macs as well; the playbook doesn't even need to be run from a Mac at all! If you want to manage a remote Mac, either another Mac on your network, or a hosted Mac like the ones from [MacStadium](https://www.macstadium.com), you just need to make sure you can connect to it with SSH:
